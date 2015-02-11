@@ -43,7 +43,11 @@ Instead, you can just call the helper method C<IPerl->png()> and you'll get the 
 
     IPerl->png( "http://www.libpng.org/pub/png/PngSuite/ccwn3p08.png" );
 
+=begin html
+
 <img img="" src=""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAAYagMeiWXwAAACBjSFJN" />
+
+=end html
 
 There are other C<Displayable>s too. For example, let's load up an C<<iframe>>.
 
