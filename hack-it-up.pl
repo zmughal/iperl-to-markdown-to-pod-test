@@ -22,8 +22,8 @@ for my $cell ( @{ $nb->{cells} } ) {
 	} elsif( $cell->{cell_type} eq 'code' ) {
 		my $code = join '', @{ $cell->{source} };
 
-		# move it over 4 spaces for code
-		$pod_string .= join '', map { s/^/    /r } @{ $cell->{source} };
+		# move it over for code
+		$pod_string .= join '', map { s/^/  /r } @{ $cell->{source} };
 		$pod_string .= "\n\n";
 
 		my @outputs = @{ $cell->{outputs} };
@@ -32,11 +32,14 @@ for my $cell ( @{ $nb->{cells} } ) {
 			if( exists $data->{"text/html"} ) {
 				# HTML preferred
 				$pod_string .= "=begin html\n\n";
-				$pod_string .= join '', @{ $data->{"text/html"} };
+				my $html = join '', @{ $data->{"text/html"} };
+				$html =~ s/\n//g;
+				$pod_string .= "<p>$html</p>";
 				$pod_string .= "\n\n=end html\n\n";
 			} elsif( exists $data->{"text/plain"} ) {
 				$pod_string .= "=begin html\n\n";
-				$pod_string .= ansi2html( join '', @{ $data->{"text/plain"} } );
+				#local $HTML::FromANSI::Options{fill_cols} = 1; # fill all 80 cols
+				$pod_string .= ansi2html( (join '', @{ $data->{"text/plain"} }) );
 				$pod_string .= "\n\n=end html\n\n";
 			}
 		}
