@@ -29,7 +29,11 @@ All data that is displayed implements a C<Displayable> role. This role requires 
         [97m[2] [0m"[93mtext/plain[0m"
     ]
 
+=begin html
+
 <img img="" src=""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAAYagMeiWXwAAACBjSFJN" />
+
+=end html
 
 Notice that I just displayed that PNG by just putting the C<$png_display> variable at the end? That's because any displayable is automatically displayed if it is at the end of a cell.
 
@@ -66,11 +70,15 @@ You can do that by calling the C<IPerl->display()> on the C<Displayable> object.
     
     $png_display;
 
+=begin html 
+
 <img img="" src=""data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIGlkPSJzdmcyIiB4bWxu" width="200" />
 
 <img LDUxLjIyMTQ5KSIgLz4KICA8L2c+Cjwvc3ZnPgo="" img="" src=""data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IS0tIENyZWF0ZWQgd2l0aCBJ" width="200" />
 
 <img img="" src=""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAAYagMeiWXwAAACBjSFJN" />
+
+=end html
 
 There is also a way to display arbitrary HTML. Here, we create a simple HTML table that loops over a 2D nested ArrayRef.
 
@@ -140,7 +148,11 @@ For example, you can load a plugin that adds a role to L<C<>PDL::Graphics::Gnupl
 
     (killed gnuplot)
 
+=begin html
+
 <img Y2FwOmJ1dHQ7IHN0cm9rZS1saW5lam9pbjptaXRlciI+CjwvZz4KPC9nPgo8L3N2Zz4KCg="" img="" src=""data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiICBzdGFuZGFsb25lPSJubyI/Pgo8" />
+
+=end html
 
 Have fun and let me know what you make with your IPerl notebooks!
 
