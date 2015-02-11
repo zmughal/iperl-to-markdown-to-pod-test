@@ -38,7 +38,7 @@ for my $cell ( @{ $nb->{cells} } ) {
 				$pod_string .= "\n\n=end html\n\n";
 			} elsif( exists $data->{"text/plain"} ) {
 				$pod_string .= "=begin html\n\n";
-				#local $HTML::FromANSI::Options{fill_cols} = 1; # fill all 80 cols
+				local $HTML::FromANSI::Options{fill_cols} = 1; # fill all 80 cols
 				$pod_string .= ansi2html( (join '', @{ $data->{"text/plain"} }) );
 				$pod_string .= "\n\n=end html\n\n";
 			}
