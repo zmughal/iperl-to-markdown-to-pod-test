@@ -13,6 +13,8 @@ my $md2pod = Markdown::Pod->new;
 
 my $nb = decode_json( $input );
 
+my $ansi_css = 'font-family: fixedsys, lucida console, terminal, vga, monospace; line-height: 1; letter-spacing: 0; font-size: 12pt';
+
 my $pod_string;
 
 for my $cell ( @{ $nb->{cells} } ) {
@@ -39,7 +41,12 @@ for my $cell ( @{ $nb->{cells} } ) {
 			} elsif( exists $data->{"text/plain"} ) {
 				$pod_string .= "=begin html\n\n";
 				local $HTML::FromANSI::Options{fill_cols} = 1; # fill all 80 cols
-				$pod_string .= ansi2html( (join '', @{ $data->{"text/plain"} }) );
+				local $HTML::FromANSI::Options{font_face} = '';
+				local $HTML::FromANSI::Options{style} = '';
+				my $html = ansi2html( (join '', @{ $data->{"text/plain"} }) );
+				$html =~ s|^<tt>|<tt><span style='$ansi_css'>|;
+				$html =~ s|</tt>$|</span></tt>|;
+				$pod_string .= $html;
 				$pod_string .= "\n\n=end html\n\n";
 			}
 		}
