@@ -46,7 +46,7 @@
 
 <p>But there&#39;s a problem: I don&#39;t want to type or remember <code>Devel::IPerl::Display::PNG</code> every time I want to load up a PNG.</p>
 
-<p>Instead, you can just call the helper method <code>IPerl-</code>png()&gt; and you&#39;ll get the same result.</p>
+<p>Instead, you can just call the helper method <code>IPerl-&gt;png()</code> and you&#39;ll get the same result.</p>
 
 <pre><code>  IPerl-&gt;png( &quot;http://www.libpng.org/pub/png/PngSuite/ccwn3p08.png&quot; );</code></pre>
 
@@ -54,7 +54,7 @@
 
 <p><img						src="data:image/png;base64,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" /></p>
 
-<p>There are other <code>Displayable</code>s too. For example, let&#39;s load up an <code>&lt;iframe</code>&gt;.</p>
+<p>There are other <code>Displayable</code>s too. For example, let&#39;s load up an <code>&lt;iframe&gt;</code>.</p>
 
 <pre><code>  my $iframe_display = IPerl-&gt;iframe( &quot;http://metacpan.org/recent&quot;, width =&gt; &quot;75%&quot; );</code></pre>
 
@@ -64,7 +64,7 @@
 
 <p>What if we want to display multiple things in one cell? For example, we want to loop over a number of images and display each of them?</p>
 
-<p>You can do that by calling the <code>IPerl-</code>display()&gt; on the <code>Displayable</code> object.</p>
+<p>You can do that by calling the <code>IPerl-&gt;display()</code> on the <code>Displayable</code> object.</p>
 
 <pre><code>  my @svg = split &#39; &#39;, q[
           https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg
@@ -88,7 +88,7 @@
 
 <p>There is also a way to display arbitrary HTML. Here, we create a simple HTML table that loops over a 2D nested ArrayRef.</p>
 
-<p>We could send the string directly to the <code>IPerl-</code>html()&gt; method, but that isn&#39;t very <a href="https://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself">DRY</a>. Instead, we&#39;ll create our own helper!</p>
+<p>We could send the string directly to the <code>IPerl-&gt;html()</code> method, but that isn&#39;t very <a href="https://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself">DRY</a>. Instead, we&#39;ll create our own helper!</p>
 
 <pre><code>  IPerl-&gt;helper( my_table =&gt; sub {
       my ($self, $data) = @_;
@@ -118,7 +118,7 @@
 
 <p>There are other plugins besides the <code>Displayable</code>s that work directly on file types (PNG, SVG, HTML, etc.).</p>
 
-<p>For example, you can load a plugin that adds a role to <a href="http://p3rl.org/PDL::Graphics::Gnuplot"><code></code>PDL::Graphics::Gnuplot</a> and makes it displayable as an SVG.</p>
+<p>For example, you can load a plugin that adds a role to <a href="http://p3rl.org/PDL::Graphics::Gnuplot"><code>PDL::Graphics::Gnuplot</code></a> and makes it displayable as an SVG.</p>
 
 <pre><code>  IPerl-&gt;load_plugin( &quot;PDLGraphicsGnuplot&quot; );
   use PDL;

@@ -7,7 +7,7 @@ date: 2015-02-09
 
 This notebook demonstrates how to use the I<rich display system> in IPerl and how it can be extended on the fly.
 
-All data that is displayed implements a C<Displayable> role. This role requires a method called C<iperl_data_representations> that returns a HashRef of different representations of the data where the keys are the MIME type of the data (e.g., C<text/html>) and values are the strings that contain the bytestream for that MIME type. For example, with PNG, we have
+All data that is displayed implements a C<<< Displayable >>> role. This role requires a method called C<<< iperl_data_representations >>> that returns a HashRef of different representations of the data where the keys are the MIME type of the data (e.g., C<<< text/html >>>) and values are the strings that contain the bytestream for that MIME type. For example, with PNG, we have
 
 
   use v5.16;
@@ -33,11 +33,11 @@ All data that is displayed implements a C<Displayable> role. This role requires 
 
 
 
-Notice that I just displayed that PNG by just putting the C<$png_display> variable at the end? That's because any displayable is automatically displayed if it is at the end of a cell.
+Notice that I just displayed that PNG by just putting the C<<< $png_display >>> variable at the end? That's because any displayable is automatically displayed if it is at the end of a cell.
 
-But there's a problem: I don't want to type or remember C<Devel::IPerl::Display::PNG> every time I want to load up a PNG.
+But there's a problem: I don't want to type or remember C<<< Devel::IPerl::Display::PNG >>> every time I want to load up a PNG.
 
-Instead, you can just call the helper method C<IPerl->png()> and you'll get the same result.
+Instead, you can just call the helper method C<<< IPerl->png() >>> and you'll get the same result.
 
 
   IPerl->png( "http://www.libpng.org/pub/png/PngSuite/ccwn3p08.png" );
@@ -50,7 +50,7 @@ Instead, you can just call the helper method C<IPerl->png()> and you'll get the 
 
 
 
-There are other C<Displayable>s too. For example, let's load up an C<<iframe>>.
+There are other C<<< Displayable >>>s too. For example, let's load up an C<<< <iframe> >>>.
 
 
   my $iframe_display = IPerl->iframe( "http://metacpan.org/recent", width => "75%" );
@@ -65,7 +65,7 @@ There are other C<Displayable>s too. For example, let's load up an C<<iframe>>.
 
 What if we want to display multiple things in one cell? For example, we want to loop over a number of images and display each of them?
 
-You can do that by calling the C<IPerl->display()> on the C<Displayable> object.
+You can do that by calling the C<<< IPerl->display() >>> on the C<<< Displayable >>> object.
 
 
   my @svg = split ' ', q[
@@ -98,7 +98,7 @@ You can do that by calling the C<IPerl->display()> on the C<Displayable> object.
 
 There is also a way to display arbitrary HTML. Here, we create a simple HTML table that loops over a 2D nested ArrayRef.
 
-We could send the string directly to the C<IPerl->html()> method, but that isn't very L<DRY|https://en.wikipedia.org/wiki/Don't_repeat_yourself>. Instead, we'll create our own helper!
+We could send the string directly to the C<<< IPerl->html() >>> method, but that isn't very L<DRY|https://en.wikipedia.org/wiki/Don't_repeat_yourself>. Instead, we'll create our own helper!
 
 
   IPerl->helper( my_table => sub {
@@ -131,9 +131,9 @@ We could send the string directly to the C<IPerl->html()> method, but that isn't
 
 
 
-There are other plugins besides the C<Displayable>s that work directly on file types (PNG, SVG, HTML, etc.).
+There are other plugins besides the C<<< Displayable >>>s that work directly on file types (PNG, SVG, HTML, etc.).
 
-For example, you can load a plugin that adds a role to L<C<>PDL::Graphics::Gnuplot|http://p3rl.org/PDL::Graphics::Gnuplot> and makes it displayable as an SVG.
+For example, you can load a plugin that adds a role to L<C<<< PDL::Graphics::Gnuplot >>>|http://p3rl.org/PDL::Graphics::Gnuplot> and makes it displayable as an SVG.
 
 
   IPerl->load_plugin( "PDLGraphicsGnuplot" );
